@@ -65,6 +65,8 @@ class GalaxyAPI(object):
             data = json.load(open_url(api_server, validate_certs=self.galaxy.options.validate_certs))
             return data.get("current_version", 'v1')
         except Exception as e:
+            print ('Problem accessing: {}' .format (api_server))
+            print (e)
             # TODO: report error
             return None
 
